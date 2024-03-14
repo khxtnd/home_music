@@ -8,5 +8,6 @@ export const Category = {
     relaxingMusic: "Relaxing music",
     featuredArtistAlbum: "Featured artist album",
     excitingWithADM: "Exciting with ADM",
-    uSUK: "US-UK"
+    uSUK: "US-UK",
+    top: "Top"
 }

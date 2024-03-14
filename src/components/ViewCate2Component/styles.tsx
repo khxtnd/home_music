@@ -9,11 +9,34 @@ export default StyleSheet.create({
     fontFamily: 'quicksand_600'
   },
   imageItemSong: {
-    marginEnd:10,
+    marginEnd: 10,
     marginBottom: 10,
     width: 120,
     height: 120,
     borderRadius: 10
   },
-
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginTop: 20,
+  },
+  tabBar: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    backgroundColor: '#eee',
+    paddingVertical: 10,
+  },
+  tabBarItem: {
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    borderRadius: 5,
+  },
+  tabBarItemText: {
+    fontSize: 16,
+  },
+  activeTab: {
+    backgroundColor: 'lightblue', // Change active tab color
+  },
 });
