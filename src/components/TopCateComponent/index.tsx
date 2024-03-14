@@ -5,6 +5,7 @@ import styles from "./styles";
 import { Song } from "../../types";
 import PagerView from "react-native-pager-view";
 
+
 class TopCateComponent extends Component<any, any>{
     constructor(props: any) {
         super(props);
@@ -33,7 +34,7 @@ class TopCateComponent extends Component<any, any>{
         );
     };
 
-    handlePageChange = (event: any) => {
+    _handlePageChange = (event: any) => {
         const { position } = event.nativeEvent;
         this.setState({ activePageIndex: position });
     };
@@ -42,7 +43,7 @@ class TopCateComponent extends Component<any, any>{
         const { listSong, activePageIndex } = this.state;
         return (
             <View style={styles.container}>
-                <PagerView style={{ height: 200 }} onPageSelected={this.handlePageChange}>
+                <PagerView style={{ height: 200 }} onPageSelected={this._handlePageChange}>
                     {listSong.map((item: Song, index: number) => (
                         <View key={index} style={{ flex: 1 }}>
                             {this._renderPage({ item })}

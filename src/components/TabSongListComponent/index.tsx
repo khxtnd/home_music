@@ -20,7 +20,7 @@ class TabSongListComponent extends Component<any, any>{
     }
     _viewItemSong = (item: Song) => {
         return (
-            <View style={{ flexDirection: 'row' }}>
+            <View style={{ flexDirection: 'row' , height: 60}}>
                 <Image
                     style={[styles.imageItemSong, { marginStart: 15 }]}
                     source={{ uri: item.image }}
@@ -37,7 +37,7 @@ class TabSongListComponent extends Component<any, any>{
         return (
             <View style={styles.container}>
                 <FlatList
-                    style={{ marginTop: 5 }}
+                    style={{ marginTop: 5}}
                     renderItem={({ item }) => this._viewItemSong(item)}
                     data={list}
                     keyExtractor={item => item.id}

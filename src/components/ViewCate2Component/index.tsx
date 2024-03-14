@@ -1,11 +1,20 @@
 import React, { Component, createRef } from 'react';
-import { ScrollView, Dimensions, Text, View, TouchableOpacity } from 'react-native';
+import {
+  ScrollView,
+  Dimensions,
+  Text,
+  View,
+  TouchableOpacity,
+  FlatList,
+} from 'react-native';
 import TabSongListComponent from '../TabSongListComponent';
 import styles from './styles';
 import { Genre } from '../../types';
+import PagerView from 'react-native-pager-view';
 
 class ViewCate2Component extends Component<any, any> {
-  scrollViewRef: any;
+  scrollViewBodyRef: any;
+  scrollViewTitleRef: any;
   constructor(props: { type: string }) {
     super(props);
     this.state = {
@@ -13,61 +22,71 @@ class ViewCate2Component extends Component<any, any> {
         { id: '1', title: 'Tab 1' },
         { id: '2', title: 'Tab 2' },
         { id: '3', title: 'Tab 3' },
+        { id: '4', title: 'Tab 3' },
+        { id: '5', title: 'Tab 3' },
+        { id: '6', title: 'Tab 3' },
+        { id: '7', title: 'Tab 3' },
+        { id: '8', title: 'Tab 3' },
+        { id: '9', title: 'Tab 3' },
       ],
-      activeTabIndex: 0,
+      activePageIndex: 0,
     };
-    this.scrollViewRef = createRef();
+    this.scrollViewBodyRef = createRef();
+    this.scrollViewTitleRef = createRef();
+
   }
 
-  renderScene = () => {
+  _renderScene = (item: Genre) => {
     return <TabSongListComponent />;
   };
 
-  handleTabPress = (index: number) => {
-    this.setState({ activeTabIndex: index });
-    this.scrollViewRef.current.scrollTo({ x: index * Dimensions.get('window').width, animated: true });
+  _handleTabPress = (index: number) => {
+    this.setState({ activePageIndex: index });
+    this.scrollViewBodyRef.current.setPage(index);
   };
 
-  handleScroll = (event: any) => {
-    const { contentOffset } = event.nativeEvent;
-    const currentIndex = Math.round(contentOffset.x / Dimensions.get('window').width);
-    this.setState({ activeTabIndex: currentIndex });
+  _handlePageChange = (event: any) => {
+    const { position } = event.nativeEvent;
+    this.setState({ activePageIndex: position });
   };
+  
   render() {
     const { type } = this.props;
-    const { tabs,  activeTabIndex } = this.state;
+    const { tabs, activePageIndex } = this.state;
     return (
       <View>
         <Text style={styles.textViewCate}>{type}</Text>
-        <View style={styles.tabBar}>
-          {tabs.map((tab: Genre, index: number) => (
-            <TouchableOpacity
-              key={tab.id}
-              style={[
-                styles.tabBarItem,
-                index === activeTabIndex && styles.activeTab // Highlight active tab
-              ]}
-              onPress={() => this.handleTabPress(index)}
-            >
-              <Text style={styles.tabBarItemText}>{tab.title}</Text>
-            </TouchableOpacity>
-          ))}
-        </View>
         <ScrollView
-          ref={this.scrollViewRef}
           horizontal
-          pagingEnabled
-          style={{ flex: 1 }}
-          onScroll={this.handleScroll}
-          scrollEventThrottle={16} // Adjust the scroll event throttle as needed
+          ref={this.scrollViewTitleRef} 
         >
-          {tabs.map((tab: Genre, index: number) => (
-            <View key={tab.id} style={{ width: Dimensions.get('window').width }}>
-              {this.renderScene()}
-            </View>
+          {tabs.map((item: Genre, index: number) => (
+            <TouchableOpacity
+              key={item.id}
+              style={styles.tabItem}
+              onPress={() => this._handleTabPress(index)}
+            >
+              <Text
+                style={[
+                  styles.tabBarItemText,
+                  index === activePageIndex && styles.activeTabText,
+                ]}
+              >
+                {item.title}
+              </Text>
+            </TouchableOpacity>
           ))}
         </ScrollView>
 
+
+
+        <PagerView style={{ flex: 1, height: 300 }} initialPage={0} onPageSelected={this._handlePageChange} ref={this.scrollViewBodyRef}>
+          {tabs.map((item: Genre, index: number) => (
+            <View key={item.id} style={{ height: 270 }}>
+              {this._renderScene(item)}
+            </View>
+          ))}
+        </PagerView>
       </View>
     );
   }

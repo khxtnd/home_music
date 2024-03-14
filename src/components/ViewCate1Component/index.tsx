@@ -20,11 +20,11 @@ class ViewCate1Component extends Component<any, any>{
             ],
         };
     }
-    viewItemSong = (item: Song, index: number) => {
-        let marginStart=0
+    _viewItemSong = (item: Song, index: number) => {
+        let marginStart = 0
         if (index % 2 == 0) {
             marginStart = 15
-        } 
+        }
         return (
             <View>
                 <Image
@@ -44,7 +44,7 @@ class ViewCate1Component extends Component<any, any>{
                     <FlatList
                         style={{ marginTop: 5 }}
                         numColumns={2}
-                        renderItem={({ item, index }) => this.viewItemSong(item, index)}
+                        renderItem={({ item, index }) => this._viewItemSong(item, index)}
                         data={listSong}
                         keyExtractor={item => item.id}
                     />

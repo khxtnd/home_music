@@ -4,13 +4,13 @@ import { ColorsInApp } from "../../values/ColorsInApp";
 export default StyleSheet.create({
   textViewCate: {
     color: ColorsInApp.black,
-    fontSize: 18,
+    fontSize: 20,
     marginStart: 15,
     fontFamily: 'quicksand_600'
   },
   textViewAll: {
     color: ColorsInApp.black,
-    fontSize: 14,
+    fontSize: 16,
     marginEnd: 15,
     fontFamily: 'quicksand_500'
   },

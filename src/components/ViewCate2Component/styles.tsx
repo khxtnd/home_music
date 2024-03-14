@@ -4,7 +4,7 @@ import { ColorsInApp } from "../../values/ColorsInApp";
 export default StyleSheet.create({
   textViewCate: {
     color: ColorsInApp.black,
-    fontSize: 18,
+    fontSize: 20,
     marginStart: 15,
     fontFamily: 'quicksand_600'
   },
@@ -21,22 +21,19 @@ export default StyleSheet.create({
     textAlign: 'center',
     marginTop: 20,
   },
-  tabBar: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    backgroundColor: '#eee',
-    paddingVertical: 10,
-  },
-  tabBarItem: {
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    borderRadius: 5,
+  tabItem:{
+    marginStart: 15,
+    marginEnd: 15,
   },
   tabBarItemText: {
-    fontSize: 16,
+    color: ColorsInApp.gray7,
+    fontFamily: 'quicksand_500',
+    fontSize: 18
   },
-  activeTab: {
-    backgroundColor: 'lightblue', // Change active tab color
-  },
+  activeTabText:{
+    fontFamily: 'quicksand_500',
+    color: ColorsInApp.oragnge6,
+    fontSize: 18
+
+  }
 });
