@@ -1,3 +1,3 @@
-export const Title={
+export const Title = {
         viewAll: "View all"
 }

@@ -13,10 +13,14 @@ export default StyleSheet.create({
     fontFamily: 'quicksand_600'
   },
   imageItemSong: {
-    marginEnd: 15,
-    marginBottom: 10,
     width: (widthScreen-45)/2,
-    height: 80,
+    height: 75,
     borderRadius: 10
+  },
+  textViewAll: {
+    color: ColorsInApp.black,
+    fontSize: 16,
+    marginEnd: 15,
+    fontFamily: 'quicksand_500'
   },
 });

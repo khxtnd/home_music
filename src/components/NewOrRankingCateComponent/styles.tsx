@@ -6,14 +6,8 @@ export default StyleSheet.create({
     color: ColorsInApp.black,
     fontSize: 20,
     marginStart: 15,
-    fontFamily: 'quicksand_600'
-  },
-  imageItemSong: {
-    marginEnd: 10,
-    marginBottom: 10,
-    width: 120,
-    height: 120,
-    borderRadius: 10
+    fontFamily: 'quicksand_600',
+    marginBottom: 6
   },
   title: {
     fontSize: 24,
@@ -22,18 +16,18 @@ export default StyleSheet.create({
     marginTop: 20,
   },
   tabItem:{
-    marginStart: 15,
-    marginEnd: 15,
+    marginEnd: 10,
+    height: 30
   },
   tabBarItemText: {
     color: ColorsInApp.gray7,
     fontFamily: 'quicksand_500',
-    fontSize: 18
+    fontSize: 16
   },
   activeTabText:{
     fontFamily: 'quicksand_500',
     color: ColorsInApp.oragnge6,
-    fontSize: 18
+    fontSize: 16
 
   }
 });

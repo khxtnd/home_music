@@ -3,14 +3,14 @@ import { ColorsInApp } from "../../values/ColorsInApp";
 
 export default StyleSheet.create({
   container: {
+    height: 300,
     width: Dimensions.get('window').width
   },
   imageItemSong: {
     marginEnd:10,
-    marginBottom: 10,
-    width: 40,
-    height: 40,
-    borderRadius: 20
+    width: 50,
+    height: 50,
+    borderRadius: 5
   },
 
 });
